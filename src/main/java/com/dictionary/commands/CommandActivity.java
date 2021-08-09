@@ -142,7 +142,12 @@ public class CommandActivity {
             List<WordPackage> wordPackageArrayList = new ArrayList<>();
 
             if (parameters.size() == CommandTag.CLOSE.getParameterQuantity()) {
-                response.setMessage("Help yourself.");
+                response.setMessage("Commands are\n" +
+                        "add word translation - add word with translation to dictionary.\n" +
+                        "showall - show all dictionary content\n" +
+                        "find mode smth - find words by translation(mode == word) or translation by word(mode == translation)\n" +
+                        "close - finish application execution\n" +
+                        "quiz length - if dictionary size allows, start the quiz\n");
             } else {
                 response.setMessage("Invalid request parameters were set. Operation denied.");
             }
