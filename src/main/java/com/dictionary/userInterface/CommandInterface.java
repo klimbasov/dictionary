@@ -1,7 +1,7 @@
 package com.dictionary.userInterface;
 
-import com.dictionary.commands.Command;
-import com.dictionary.response.Response;
+import com.dictionary.command.Command;
+import com.dictionary.entity.response.Response;
 
 public interface CommandInterface {
 

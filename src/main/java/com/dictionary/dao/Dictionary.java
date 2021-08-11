@@ -5,10 +5,10 @@ import com.dictionary.entity.WordPackage;
 
 import java.util.*;
 
-public class Dictionary implements DictionaryStorage{
+public class Dictionary implements DictionaryStorage {
     private final Map<String, String> words = new HashMap<>();
 
-    public Dictionary(){
+    public Dictionary() {
 
     }
 
@@ -19,15 +19,14 @@ public class Dictionary implements DictionaryStorage{
 
     @Override
     public String getTranslation(String word) {
-        String translation = words.get(word);
-        return translation;
+        return words.get(word);
     }
 
     @Override
     public ArrayList<String> getWords(String translation) {
         ArrayList<String> wordsList = new ArrayList<>();
-        for (Map.Entry<String, String> entry : words.entrySet()){
-            if(translation.equals(entry.getValue())){
+        for (Map.Entry<String, String> entry : words.entrySet()) {
+            if (translation.equals(entry.getValue())) {
                 wordsList.add(entry.getKey());
             }
         }
@@ -35,9 +34,9 @@ public class Dictionary implements DictionaryStorage{
     }
 
     @Override
-    public ArrayList<WordPackage> getAllWords(){
+    public ArrayList<WordPackage> getAllWords() {
         ArrayList<WordPackage> wordsList = new ArrayList<>();
-        for (Map.Entry<String, String> entry : words.entrySet()){
+        for (Map.Entry<String, String> entry : words.entrySet()) {
             wordsList.add(new WordPackage(entry.getKey(), entry.getValue()));
         }
         return wordsList;
@@ -52,11 +51,11 @@ public class Dictionary implements DictionaryStorage{
     public ArrayList<WordPackage> getSetOfRandomWords(Integer setSize) {
         ArrayList<WordPackage> set = null;
         ArrayList<Integer> indexes = RandomIntegerSetGenerator.getIntegerSet(0, words.size(), setSize);
-        if(indexes != null) {
+        if (indexes != null) {
             set = new ArrayList<>();
             Map.Entry<String, String>[] mapArray = words.entrySet().toArray(new Map.Entry[0]);
-            for(Integer index : indexes){
-                set.add(new WordPackage(mapArray[index].getKey(),mapArray[index].getValue()));
+            for (Integer index : indexes) {
+                set.add(new WordPackage(mapArray[index].getKey(), mapArray[index].getValue()));
             }
         }
         return set;

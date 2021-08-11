@@ -12,7 +12,8 @@ public enum CommandTag {
 
     private final Integer parameterQuantity;
     private final String[] aliases;
-    CommandTag(final Integer parameterQuantity, String[] aliases){
+
+    CommandTag(final Integer parameterQuantity, String[] aliases) {
         this.parameterQuantity = parameterQuantity;
         this.aliases = aliases;
     }
@@ -26,7 +27,7 @@ public enum CommandTag {
     }
 }
 
-class Aliases{
+class Aliases {
     public static final String[] addAliases = new String[]{"ADD", "add", "Add"};
     public static final String[] findAliases = new String[]{"FIND", "find", "Find"};
     public static final String[] showAllAliases = new String[]{"SHOW_ALL", "showAll", "show_all"};

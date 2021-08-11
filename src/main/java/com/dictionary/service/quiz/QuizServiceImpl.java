@@ -5,15 +5,20 @@ import com.dictionary.entity.WordPackage;
 
 import java.util.ArrayList;
 
-public class QuizServiceImpl implements QuizService{
+public class QuizServiceImpl implements QuizService {
     private static DictionaryStorage dictionaryStorage;
 
-    public QuizServiceImpl(final DictionaryStorage dictionaryStorage){
-        this.dictionaryStorage = dictionaryStorage;
+    public QuizServiceImpl(final DictionaryStorage dictionaryStorage) {
+        QuizServiceImpl.dictionaryStorage = dictionaryStorage;
     }
 
     @Override
     public ArrayList<WordPackage> getQuizPackage(Integer quizLength) {
-        return dictionaryStorage.getSetOfRandomWords(quizLength);
+        ArrayList<WordPackage> wordPackages = null;
+        if (quizLength > 0) {
+            wordPackages = dictionaryStorage.getSetOfRandomWords(quizLength);
+        }
+        return wordPackages;
+
     }
 }

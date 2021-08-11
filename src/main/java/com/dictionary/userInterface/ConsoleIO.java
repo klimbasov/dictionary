@@ -1,7 +1,7 @@
 package com.dictionary.userInterface;
 
 public interface ConsoleIO {
-    public String getInputString();
+    String getInputString();
 
-    public void sendToOutput(final String message);
+    void sendToOutput(final String message);
 }

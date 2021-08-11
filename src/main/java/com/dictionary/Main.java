@@ -1,8 +1,8 @@
 package com.dictionary;
 
-import com.dictionary.commands.CommandActivity;
-import com.dictionary.commands.CommandContainerImpl;
-import com.dictionary.commands.CommandsContainer;
+import com.dictionary.command.CommandActivity;
+import com.dictionary.command.CommandContainerImpl;
+import com.dictionary.command.CommandsContainer;
 import com.dictionary.controller.Controller;
 import com.dictionary.dao.Dictionary;
 import com.dictionary.dao.DictionaryStorage;
@@ -17,7 +17,7 @@ import com.dictionary.userInterface.ConsoleIO;
 import com.dictionary.userInterface.ConsoleIOImpl;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ApplicationStatus applicationStatus = new ApplicationStatus();
         DictionaryStorage dictionaryStorage = new Dictionary();
         DictionaryService dictionaryService = new DictionaryServiceImpl(dictionaryStorage);

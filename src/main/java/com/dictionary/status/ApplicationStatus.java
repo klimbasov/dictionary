@@ -1,17 +1,17 @@
 package com.dictionary.status;
 
 public class ApplicationStatus {
-    private Boolean isEndOfExecutionFlag;
+    private Boolean isRunning;
 
-    public ApplicationStatus(){
-        this.isEndOfExecutionFlag = false;
+    public ApplicationStatus() {
+        this.isRunning = true;
     }
 
-    public void setEndOfExecution() {
-        isEndOfExecutionFlag = true;
+    public void setFalseIsRunning() {
+        isRunning = false;
     }
 
-    public Boolean isEndOfExecution(){
-        return isEndOfExecutionFlag;
+    public Boolean IsRunning() {
+        return isRunning;
     }
 }

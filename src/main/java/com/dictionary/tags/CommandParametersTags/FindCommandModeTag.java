@@ -9,7 +9,7 @@ public enum FindCommandModeTag {
 
     private final String[] aliases;
 
-    FindCommandModeTag(final String[] aliases){
+    FindCommandModeTag(final String[] aliases) {
         this.aliases = aliases;
     }
 
@@ -18,7 +18,7 @@ public enum FindCommandModeTag {
     }
 }
 
-class Aliases{
+class Aliases {
     public static final String[] wordAliases = new String[]{"WORD", "word", "Word"};
     public static final String[] translationAliases = new String[]{"TRANSLATION", "translation", "Translation"};
     public static final String[] invalidAliases = new String[]{};

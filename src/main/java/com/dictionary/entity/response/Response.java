@@ -1,13 +1,13 @@
-package com.dictionary.response;
+package com.dictionary.entity.response;
 
-public class ResponseImpl implements Response{
+public class Response {
     private String message;
 
-    public ResponseImpl(){
+    public Response() {
 
     }
 
-    public ResponseImpl(final String message){
+    public Response(final String message) {
         this.message = message;
     }
 
@@ -15,8 +15,7 @@ public class ResponseImpl implements Response{
         this.message = message;
     }
 
-    @Override
     public String toString() {
-        return new String(message);
+        return message;
     }
 }

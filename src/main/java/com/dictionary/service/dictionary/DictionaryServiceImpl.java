@@ -5,25 +5,25 @@ import com.dictionary.entity.WordPackage;
 
 import java.util.List;
 
-public class DictionaryServiceImpl implements DictionaryService{
+public class DictionaryServiceImpl implements DictionaryService {
     private final DictionaryStorage dictionaryStorage;
 
-    public DictionaryServiceImpl(final DictionaryStorage dictionaryStorage){
+    public DictionaryServiceImpl(final DictionaryStorage dictionaryStorage) {
         this.dictionaryStorage = dictionaryStorage;
     }
 
     @Override
-    public void addWord(String word, String translation)throws Exception {
-        if(word == null || translation == null){
+    public void addWord(String word, String translation) throws Exception {
+        if (word == null || translation == null) {
             throw new Exception("Either Word or translation were not exist.");
         }
         dictionaryStorage.addDictionaryRecord(new WordPackage(word, translation));
     }
 
     @Override
-    public List<String> getWord(String translation)throws Exception {
+    public List<String> getWord(String translation) throws Exception {
         List<String> wordsList;
-        if(translation == null){
+        if (translation == null) {
             throw new Exception("Translation was not exist.");
         }
         wordsList = dictionaryStorage.getWords(translation);
@@ -31,9 +31,9 @@ public class DictionaryServiceImpl implements DictionaryService{
     }
 
     @Override
-    public String getTranslation(String word)throws Exception {
+    public String getTranslation(String word) throws Exception {
         String translation;
-        if(word == null){
+        if (word == null) {
             throw new Exception("Word was not exist.");
         }
         translation = dictionaryStorage.getTranslation(word);
@@ -41,12 +41,12 @@ public class DictionaryServiceImpl implements DictionaryService{
     }
 
     @Override
-    public List<WordPackage> getAllWords() throws Exception{
+    public List<WordPackage> getAllWords() {
         return dictionaryStorage.getAllWords();
     }
 
     @Override
-    public Integer getDictionarySize() throws Exception{
+    public Integer getDictionarySize() {
         return dictionaryStorage.getDictionarySize();
     }
 }
