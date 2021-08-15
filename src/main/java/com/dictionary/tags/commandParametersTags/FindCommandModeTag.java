@@ -1,6 +1,4 @@
-package com.dictionary.tags.CommandParametersTags;
-
-import java.util.ArrayList;
+package com.dictionary.tags.commandParametersTags;
 
 public enum FindCommandModeTag {
     WORD(Aliases.wordAliases),

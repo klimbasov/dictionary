@@ -4,6 +4,7 @@ import com.dictionary.dao.DictionaryStorage;
 import com.dictionary.entity.WordPackage;
 
 import java.util.List;
+import java.util.Objects;
 
 public class DictionaryServiceImpl implements DictionaryService {
     private final DictionaryStorage dictionaryStorage;
@@ -23,7 +24,7 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     public List<String> getWord(String translation) throws Exception {
         List<String> wordsList;
-        if (translation == null) {
+        if (Objects.isNull(translation)) {
             throw new Exception("Translation was not exist.");
         }
         wordsList = dictionaryStorage.getWords(translation);
@@ -33,7 +34,7 @@ public class DictionaryServiceImpl implements DictionaryService {
     @Override
     public String getTranslation(String word) throws Exception {
         String translation;
-        if (word == null) {
+        if (Objects.isNull(word)) {
             throw new Exception("Word was not exist.");
         }
         translation = dictionaryStorage.getTranslation(word);

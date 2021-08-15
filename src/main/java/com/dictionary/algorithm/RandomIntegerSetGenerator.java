@@ -1,12 +1,12 @@
 package com.dictionary.algorithm;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Random;
 
 public class RandomIntegerSetGenerator {
-    static Integer lowestBorderValue = -9999;
-    static Integer highestBorderValue = 9999;
-    static Integer highestSizeValue = 9999;
+    static final Integer lowestBorderValue = -9999;
+    static final Integer highestBorderValue = 9999;
+    static final Integer highestSizeValue = 9999;
 
     public static ArrayList<Integer> getIntegerSet(Integer lowBorder, Integer highBorder, Integer setSize) {
         ArrayList<Integer> resultSet = new ArrayList<>();
@@ -15,7 +15,14 @@ public class RandomIntegerSetGenerator {
             for (int counter = 0; counter < availableIntegers.length; counter++) {
                 availableIntegers[counter] = counter + lowBorder;
             }
-            Collections.shuffle(Collections.singletonList(availableIntegers));
+            Random rand = new Random();
+
+            for (int counter = 0; counter < availableIntegers.length; counter++) {
+                int randomIndexToSwap = rand.nextInt(availableIntegers.length);
+                int temp = availableIntegers[randomIndexToSwap];
+                availableIntegers[randomIndexToSwap] = availableIntegers[counter];
+                availableIntegers[counter] = temp;
+            }
             for (int counter = 0; counter < setSize; counter++) {
                 resultSet.add(availableIntegers[counter]);
             }
@@ -23,7 +30,7 @@ public class RandomIntegerSetGenerator {
         return resultSet;
     }
 
-    private static boolean isValid(Integer lowBorder, Integer highBorder, Integer setSize){
+    private static boolean isValid(Integer lowBorder, Integer highBorder, Integer setSize) {
         return (setSize <= (highBorder - lowBorder + 1)) &&
                 (setSize > 0) &&
                 (highBorder > lowBorder) &&

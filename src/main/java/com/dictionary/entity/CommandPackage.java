@@ -1,7 +1,5 @@
 package com.dictionary.entity;
 
-import com.dictionary.tags.CommandTag;
-
 import java.util.ArrayList;
 
 public class CommandPackage {

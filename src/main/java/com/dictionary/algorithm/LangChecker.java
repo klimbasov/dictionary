@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class LangChecker {
     public static boolean isEngWord(String word) {
-        if(Objects.isNull(word)){
+        if (Objects.isNull(word)) {
             return false;
         }
-        if(word.length() == 0){
+        if (word.length() == 0) {
             return false;
         }
         for (char symbol : word.toCharArray()) {
@@ -19,10 +19,10 @@ public class LangChecker {
     }
 
     public static boolean isRusWord(String word) {
-        if(Objects.isNull(word)){
+        if (Objects.isNull(word)) {
             return false;
         }
-        if(word.length() == 0){
+        if (word.length() == 0) {
             return false;
         }
         for (char symbol : word.toCharArray()) {

@@ -1,12 +1,11 @@
 package com.dictionary;
 
-import com.dictionary.command.CommandActivity;
-import com.dictionary.command.CommandContainerImpl;
-import com.dictionary.command.CommandsContainer;
 import com.dictionary.controller.Controller;
 import com.dictionary.dao.Dictionary;
 import com.dictionary.dao.DictionaryStorage;
 import com.dictionary.entity.ActivitySourcePackage;
+import com.dictionary.service.command.CommandContainerImpl;
+import com.dictionary.service.command.CommandsContainer;
 import com.dictionary.service.dictionary.DictionaryService;
 import com.dictionary.service.dictionary.DictionaryServiceImpl;
 import com.dictionary.service.quiz.QuizService;
@@ -24,12 +23,13 @@ public class Main {
         DictionaryService dictionaryService = new DictionaryServiceImpl(dictionaryStorage);
         QuizService quizService = new QuizServiceImpl(dictionaryStorage);
         ConsoleIO consoleIO = new ConsoleIOImpl();
+
         ActivitySourcePackage activitySourcePackage = new ActivitySourcePackage(dictionaryService,
                 quizService,
                 applicationStatus,
                 consoleIO);
-        CommandActivity commandActivity = new CommandActivity(activitySourcePackage);
-        CommandsContainer commandsContainer = new CommandContainerImpl(commandActivity);
+
+        CommandsContainer commandsContainer = new CommandContainerImpl(activitySourcePackage);
         CommandInterface userInterface = new CommandInterfaceImpl(commandsContainer, consoleIO);
         Controller controller = new Controller(userInterface, applicationStatus);
 

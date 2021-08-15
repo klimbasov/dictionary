@@ -14,18 +14,18 @@ public class ActivitySourcePackage {
     public ActivitySourcePackage(final DictionaryService dictionaryService,
                                  final QuizService quizService,
                                  final ApplicationStatus applicationStatus,
-                                 final ConsoleIO consoleIO){
+                                 final ConsoleIO consoleIO) {
         this.dictionaryService = dictionaryService;
         this.quizService = quizService;
         this.applicationStatus = applicationStatus;
         this.consoleIO = consoleIO;
     }
 
-    public DictionaryService getDictionaryService(){
+    public DictionaryService getDictionaryService() {
         return this.dictionaryService;
     }
 
-    public QuizService getQuizService(){
+    public QuizService getQuizService() {
         return this.quizService;
     }
 

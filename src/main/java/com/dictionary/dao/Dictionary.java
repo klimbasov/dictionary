@@ -3,13 +3,15 @@ package com.dictionary.dao;
 import com.dictionary.algorithm.RandomIntegerSetGenerator;
 import com.dictionary.entity.WordPackage;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Dictionary implements DictionaryStorage {
-    private final Map<String, String> words = new HashMap<>();
+    private final Map<String, String> words;
 
     public Dictionary() {
-
+        this.words = new HashMap<>();
     }
 
     @Override
@@ -49,14 +51,11 @@ public class Dictionary implements DictionaryStorage {
 
     @Override
     public ArrayList<WordPackage> getSetOfRandomWords(Integer setSize) {
-        ArrayList<WordPackage> set = null;
+        ArrayList<WordPackage> set = new ArrayList<>();
         ArrayList<Integer> indexes = RandomIntegerSetGenerator.getIntegerSet(0, words.size(), setSize);
-        if (indexes != null) {
-            set = new ArrayList<>();
-            Map.Entry<String, String>[] mapArray = words.entrySet().toArray(new Map.Entry[0]);
-            for (Integer index : indexes) {
-                set.add(new WordPackage(mapArray[index].getKey(), mapArray[index].getValue()));
-            }
+        Map.Entry<String, String>[] mapArray = words.entrySet().toArray(new Map.Entry[0]);
+        for (Integer index : indexes) {
+            set.add(new WordPackage(mapArray[index].getKey(), mapArray[index].getValue()));
         }
         return set;
     }

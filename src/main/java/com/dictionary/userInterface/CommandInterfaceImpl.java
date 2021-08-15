@@ -1,11 +1,13 @@
 package com.dictionary.userInterface;
 
-import com.dictionary.command.Command;
-import com.dictionary.command.CommandsContainer;
 import com.dictionary.entity.CommandPackage;
 import com.dictionary.entity.response.Response;
+import com.dictionary.service.command.Command;
+import com.dictionary.service.command.CommandsContainer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class CommandInterfaceImpl implements CommandInterface {
     private final ConsoleIO consoleIO;

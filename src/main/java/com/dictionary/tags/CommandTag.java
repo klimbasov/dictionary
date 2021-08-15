@@ -4,6 +4,7 @@ public enum CommandTag {
     ADD(2, Aliases.addAliases),
     FIND(2, Aliases.findAliases),
     SHOW_ALL(0, Aliases.showAllAliases),
+    SHOW_SIZE(0, Aliases.showSizeAliases),
     CLOSE(0, Aliases.closeAliases),
     HELP(0, Aliases.helpAliases),
     QUIZ(1, Aliases.quizAliases),
@@ -30,7 +31,8 @@ public enum CommandTag {
 class Aliases {
     public static final String[] addAliases = new String[]{"ADD", "add", "Add"};
     public static final String[] findAliases = new String[]{"FIND", "find", "Find"};
-    public static final String[] showAllAliases = new String[]{"SHOW_ALL", "showAll", "show_all"};
+    public static final String[] showAllAliases = new String[]{"SHOW_SIZE", "showSize", "show_size"};
+    public static final String[] showSizeAliases = new String[]{"SHOW_ALL", "showAll", "show_all"};
     public static final String[] closeAliases = new String[]{"CLOSE", "close", "Close"};
     public static final String[] helpAliases = new String[]{"HELP", "help", "Help"};
     public static final String[] quizAliases = new String[]{"QUIZ", "quiz", "Quiz"};

@@ -1,4 +1,4 @@
-package com.dictionary.command;
+package com.dictionary.service.command;
 
 import com.dictionary.entity.CommandPackage;
 
