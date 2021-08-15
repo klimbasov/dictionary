@@ -31,23 +31,23 @@ public class CommandContainerImpl implements CommandsContainer {
     }
 
     private void createStringCommandHashMap() {
-        for (final String alias : CommandTag.ADD.getAliases()) {
-            stringCommandHashMap.put(alias, commandActivity::addActivity);
-        }
-        for (final String alias : CommandTag.FIND.getAliases()) {
-            stringCommandHashMap.put(alias, commandActivity::findActivity);
-        }
-        for (final String alias : CommandTag.SHOW_ALL.getAliases()) {
-            stringCommandHashMap.put(alias, commandActivity::showAllActivity);
-        }
-        for (final String alias : CommandTag.HELP.getAliases()) {
-            stringCommandHashMap.put(alias, commandActivity::helpActivity);
-        }
-        for (final String alias : CommandTag.CLOSE.getAliases()) {
-            stringCommandHashMap.put(alias, commandActivity::closeActivity);
-        }
-        for (final String alias : CommandTag.QUIZ.getAliases()) {
-            stringCommandHashMap.put(alias, commandActivity::quizActivity);
-        }
+            for (final String alias : CommandTag.ADD.getAliases()) {
+                stringCommandHashMap.put(alias, commandActivity::addActivity);
+            }
+            for (final String alias : CommandTag.FIND.getAliases()) {
+                stringCommandHashMap.put(alias, commandActivity::findActivity);
+            }
+            for (final String alias : CommandTag.SHOW_ALL.getAliases()) {
+                stringCommandHashMap.put(alias, commandActivity::showAllActivity);
+            }
+            for (final String alias : CommandTag.HELP.getAliases()) {
+                stringCommandHashMap.put(alias, commandActivity::helpActivity);
+            }
+            for (final String alias : CommandTag.CLOSE.getAliases()) {
+                stringCommandHashMap.put(alias, commandActivity::closeActivity);
+            }
+            for (final String alias : CommandTag.QUIZ.getAliases()) {
+                stringCommandHashMap.put(alias, commandActivity::quizActivity);
+            }
     }
 }

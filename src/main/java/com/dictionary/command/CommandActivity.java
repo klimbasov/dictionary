@@ -1,6 +1,7 @@
 package com.dictionary.command;
 
 import com.dictionary.algorithm.LangChecker;
+import com.dictionary.entity.ActivitySourcePackage;
 import com.dictionary.entity.CommandPackage;
 import com.dictionary.entity.WordPackage;
 import com.dictionary.entity.response.Response;
@@ -20,11 +21,11 @@ public class CommandActivity {
     private final ApplicationStatus applicationStatus;
     private final ConsoleIO consoleIO;
 
-    public CommandActivity(final DictionaryService dictionaryService, final QuizService quizService, final ApplicationStatus applicationStatus, final ConsoleIO consoleIO) {
-        this.dictionaryService = dictionaryService;
-        this.quizService = quizService;
-        this.applicationStatus = applicationStatus;
-        this.consoleIO = consoleIO;
+    public CommandActivity(final ActivitySourcePackage activitySourcePackage) {
+        this.dictionaryService = activitySourcePackage.getDictionaryService();
+        this.quizService = activitySourcePackage.getQuizService();
+        this.applicationStatus = activitySourcePackage.getApplicationStatus();
+        this.consoleIO = activitySourcePackage.getConsoleIO();
     }
 
     public Response addActivity(CommandPackage commandPackage) {
@@ -47,7 +48,7 @@ public class CommandActivity {
         return response;
     }
 
-    public Response findActivity(CommandPackage commandPackage) {
+    public Response findActivity(CommandPackage commandPackage){
         Response response = new Response();
         ArrayList<String> parameters = commandPackage.getParameters();
         FindCommandModeTag modeTag = FindCommandModeTag.INVALID;

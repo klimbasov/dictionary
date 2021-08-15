@@ -1,16 +1,18 @@
 package com.dictionary.algorithm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class RandomIntegerSetGenerator {
+    static Integer lowestBorderValue = -9999;
+    static Integer highestBorderValue = 9999;
+    static Integer highestSizeValue = 9999;
+
     public static ArrayList<Integer> getIntegerSet(Integer lowBorder, Integer highBorder, Integer setSize) {
-        ArrayList<Integer> resultSet = null;
-        if (setSize <= (highBorder - lowBorder)) {
-            resultSet = new ArrayList<>();
-            int[] availableIntegers = new int[highBorder - lowBorder];
-            for (int counter = 0; counter < setSize; counter++) {
+        ArrayList<Integer> resultSet = new ArrayList<>();
+        if (isValid(lowBorder, highBorder, setSize)) {
+            int[] availableIntegers = new int[highBorder - lowBorder + 1];
+            for (int counter = 0; counter < availableIntegers.length; counter++) {
                 availableIntegers[counter] = counter + lowBorder;
             }
             Collections.shuffle(Collections.singletonList(availableIntegers));
@@ -19,5 +21,16 @@ public class RandomIntegerSetGenerator {
             }
         }
         return resultSet;
+    }
+
+    private static boolean isValid(Integer lowBorder, Integer highBorder, Integer setSize){
+        return (setSize <= (highBorder - lowBorder + 1)) &&
+                (setSize > 0) &&
+                (highBorder > lowBorder) &&
+                (lowBorder >= lowestBorderValue) &&
+                (lowBorder <= highestBorderValue) &&
+                (highBorder <= highestBorderValue) &&
+                (setSize <= highestSizeValue);
+
     }
 }

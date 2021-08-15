@@ -1,6 +1,7 @@
 package com.dictionary.controller;
 
 import com.dictionary.command.Command;
+import com.dictionary.entity.response.Response;
 import com.dictionary.status.ApplicationStatus;
 import com.dictionary.userInterface.CommandInterface;
 
@@ -16,7 +17,12 @@ public class Controller {
     public void run() {
         while (applicationStatus.IsRunning()) {
             Command command = userInterface.getCommand();
-            userInterface.sendResponse(command.execute());
+            try{
+                userInterface.sendResponse(command.execute());
+            }catch (Exception exception){
+                userInterface.sendResponse(new Response(exception.getMessage()));
+            }
+
         }
     }
 }
